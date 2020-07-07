@@ -34,3 +34,15 @@
 .countdown-control {
   margin-top: 10px;
 }
+
+/* Stopwatch styles for the full length */
+
+.stopwatch-full-length-header {
+  font-size: 70px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.stopwatch-full-length-display {
+  font-size: 120px;
+}
