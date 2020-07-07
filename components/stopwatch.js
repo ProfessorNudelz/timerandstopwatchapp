@@ -41,23 +41,23 @@ class Stopwatch extends Component {
 
     return (
       <div>
-        <div className="Stopwatch">
-          <div className="Stopwatch-header">Stopwatch</div>
+        <div className="stopwatch">
+          <div className="stopwatch-header">Stopwatch</div>
         </div>
-        <div className="Stopwatch-display">
+        <div className="stopwatch-display">
           {hours} : {minutes} : {seconds} : {centiseconds}
         </div>
         {this.state.timerOn === false && this.state.timerTime === 0 && (
-          <button onClick={this.startTimer}>Start</button>
+          <button className="btn btn-dark" onClick={this.startTimer}>Start</button>
         )}
         {this.state.timerOn === true && (
-          <button onClick={this.stopTimer}>Stop</button>
+          <button className="btn btn-dark" onClick={this.stopTimer}>Stop</button>
         )}
         {this.state.timerOn === false && this.state.timerTime > 0 && (
-          <button onClick={this.startTimer}>Resume</button>
+          <button className="btn btn-dark" onClick={this.startTimer}>Resume</button>
         )}
         {this.state.timerOn === false && this.state.timerTime > 0 && (
-          <button onClick={this.resetTimer}>Reset</button>
+          <button className="btn btn-dark" onClick={this.resetTimer}>Reset</button>
         )}
       </div>
     )
