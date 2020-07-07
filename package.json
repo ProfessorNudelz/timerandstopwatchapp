@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "homepage": "http://professornudelz.github.io/timerandstopwatchapp",
   "scripts": {
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build",
     "dev": "next",
     "build": "next build",
     "start": "next start"
-  },  
+  },
   "dependencies": {
     "next": "^9.4.4",
     "react": "^16.13.1",
