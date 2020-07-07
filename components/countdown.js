@@ -68,15 +68,15 @@ class Countdown extends Component {
 
     return (
       <div>
-        <div className="Countdown">
-          <div className="Countdown-header">Countdown</div>
+        <div className="countdown">
+          <div className="countdown-header">Countdown</div>
         </div>
-        <div className="Countdown-time">
+        <div className="countdown-time">
           {hours} : {minutes} : {seconds}
         </div>
         <div>
-          <div className="Countdown-label">Hours : Minutes : Seconds</div>
-          <div className="Countdown-display">
+          <div className="countdown-label">Hours : Minutes : Seconds</div>
+          <div className="countdown-display">
             <button className="btn btn-dark" onClick={() => this.adjustTimer("incHours")}>&#8679;</button>
             <button className="btn btn-dark" onClick={() => this.adjustTimer("decHours")}>&#8681;</button>
             <button className="btn btn-dark" onClick={() => this.adjustTimer("incMinutes")}>&#8679;</button>
@@ -87,18 +87,18 @@ class Countdown extends Component {
         </div>
         {timerOn === false &&
           (timerStart === 0 || timerTime === timerStart) && (
-            <button className="btn btn-dark" onClick={this.startTimer}>Start</button>
+            <button className="btn btn-dark countdown-control" onClick={this.startTimer}>Start</button>
         )}
         {timerOn === true && timerTime >= 1000 && (
-          <button className="btn btn-dark" onClick={this.stopTimer}>Stop</button>
+          <button className="btn btn-dark countdown-control" onClick={this.stopTimer}>Stop</button>
         )}
         {timerOn === false &&
           (timerStart !== 0 && timerStart !== timerTime && timerTime !== 0) && (
-            <button className="btn btn-dark" onClick={this.startTimer}>Resume</button>
+            <button className="btn btn-dark countdown-control" onClick={this.startTimer}>Resume</button>
         )}
         {(timerOn === false || timerTime < 1000) &&
           (timerStart !== timerTime && timerStart > 0) && (
-            <button className="btn btn-dark" onClick={this.resetTimer}>Reset</button>
+            <button className="btn btn-dark countdown-control" onClick={this.resetTimer}>Reset</button>
         )}
       </div>
     )
