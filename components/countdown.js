@@ -20,7 +20,7 @@ class Countdown extends Component {
           timerTime: newTime
         })
       } else {
-        clearInterval(this.timer);
+        clearInterval(this.timer)
         this.setState({ timerOn: false })
         alert("Countdown ended")
       }
@@ -28,8 +28,8 @@ class Countdown extends Component {
   }
 
   stopTimer = () => {
-    clearInterval(this.timer);
-    this.setState({ timerOn: false });
+    clearInterval(this.timer)
+    this.setState({ timerOn: false })
   }
 
   resetTimer = () => {
@@ -41,42 +41,42 @@ class Countdown extends Component {
   }
 
   adjustTimer = input => {
-    const { timerTime, timerOn } = this.state;
-    const max = 216000000;
+    const { timerTime, timerOn } = this.state
+    const max = 216000000
     if (!timerOn) {
       if (input === "incHours" && timerTime + 3600000 < max) {
-        this.setState({ timerTime: timerTime + 3600000 });
+        this.setState({ timerTime: timerTime + 3600000 })
       } else if (input === "decHours" && timerTime - 3600000 >= 0) {
-        this.setState({ timerTime: timerTime - 3600000 });
+        this.setState({ timerTime: timerTime - 3600000 })
       } else if (input === "incMinutes" && timerTime + 60000 < max) {
-        this.setState({ timerTime: timerTime + 60000 });
+        this.setState({ timerTime: timerTime + 60000 })
       } else if (input === "decMinutes" && timerTime - 60000 >= 0) {
-        this.setState({ timerTime: timerTime - 60000 });
+        this.setState({ timerTime: timerTime - 60000 })
       } else if (input === "incSeconds" && timerTime + 1000 < max) {
-        this.setState({ timerTime: timerTime + 1000 });
+        this.setState({ timerTime: timerTime + 1000 })
       } else if (input === "decSeconds" && timerTime - 1000 >= 0) {
-        this.setState({ timerTime: timerTime - 1000 });
+        this.setState({ timerTime: timerTime - 1000 })
       }
     }
   }
   
   render() {
-    const { timerTime, timerStart, timerOn } = this.state;
-    let seconds = ("0" + (Math.floor((timerTime / 1000) % 60) % 60)).slice(-2);
-    let minutes = ("0" + Math.floor((timerTime / 60000) % 60)).slice(-2);
-    let hours = ("0" + Math.floor((timerTime / 3600000) % 60)).slice(-2);
+    const { timerTime, timerStart, timerOn } = this.state
+    let seconds = ("0" + (Math.floor((timerTime / 1000) % 60) % 60)).slice(-2)
+    let minutes = ("0" + Math.floor((timerTime / 60000) % 60)).slice(-2)
+    let hours = ("0" + Math.floor((timerTime / 3600000) % 60)).slice(-2)
 
     return (
       <div>
         <div className="countdown">
-          <div className="countdown-header">Countdown</div>
+          <div className="countdown-header text-center">Countdown</div>
         </div>
-        <div className="countdown-time">
+        <div className="countdown-time text-center">
           {hours} : {minutes} : {seconds}
         </div>
         <div>
-          <div className="countdown-label">Hours : Minutes : Seconds</div>
-          <div className="countdown-display">
+          <div className="countdown-label text-center">Hours : Minutes : Seconds</div>
+          <div className="countdown-display text-center">
             <button className="btn btn-dark" onClick={() => this.adjustTimer("incHours")}>&#8679;</button>
             <button className="btn btn-dark" onClick={() => this.adjustTimer("decHours")}>&#8681;</button>
             <button className="btn btn-dark" onClick={() => this.adjustTimer("incMinutes")}>&#8679;</button>
@@ -85,21 +85,23 @@ class Countdown extends Component {
             <button className="btn btn-dark" onClick={() => this.adjustTimer("decSeconds")}>&#8681;</button>
           </div>
         </div>
-        {timerOn === false &&
-          (timerStart === 0 || timerTime === timerStart) && (
-            <button className="btn btn-dark countdown-control" onClick={this.startTimer}>Start</button>
-        )}
-        {timerOn === true && timerTime >= 1000 && (
-          <button className="btn btn-dark countdown-control" onClick={this.stopTimer}>Stop</button>
-        )}
-        {timerOn === false &&
-          (timerStart !== 0 && timerStart !== timerTime && timerTime !== 0) && (
-            <button className="btn btn-dark countdown-control" onClick={this.startTimer}>Resume</button>
-        )}
-        {(timerOn === false || timerTime < 1000) &&
-          (timerStart !== timerTime && timerStart > 0) && (
-            <button className="btn btn-dark countdown-control" onClick={this.resetTimer}>Reset</button>
-        )}
+        <div className='text-center'>
+          {timerOn === false &&
+            (timerStart === 0 || timerTime === timerStart) && (
+              <button className="btn btn-dark countdown-control" onClick={this.startTimer}>Start</button>
+          )}
+          {timerOn === true && timerTime >= 1000 && (
+            <button className="btn btn-dark countdown-control" onClick={this.stopTimer}>Stop</button>
+          )}
+          {timerOn === false &&
+            (timerStart !== 0 && timerStart !== timerTime && timerTime !== 0) && (
+              <button className="btn btn-dark countdown-control" onClick={this.startTimer}>Resume</button>
+          )}
+          {(timerOn === false || timerTime < 1000) &&
+            (timerStart !== timerTime && timerStart > 0) && (
+              <button className="btn btn-dark countdown-control" onClick={this.resetTimer}>Reset</button>
+          )}
+        </div>
       </div>
     )
   }

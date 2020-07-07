@@ -3,29 +3,28 @@ import React, { Component } from 'react'
 class Clock extends Component {
   state = {
     time: new Date()
-  };
+  }
 
   componentDidMount() {
-    this.timerID = setInterval(() => this.tick(), 1000);
+    this.timerID = setInterval(() => this.tick(), 1000)
   }
 
   componentWillUnmount() {
-    clearInterval(this.timerID);
+    clearInterval(this.timerID)
   }
 
   tick() {
     this.setState({
       time: new Date()
-    });
+    })
   }
 
   render() {
     return (
-      <div>
-        <h1>Hello, world!</h1>
-        <h2>It is {this.state.time.toLocaleTimeString()}.</h2>
+      <div className='col-md-12 text-center'>
+        <h1 className='ticking-clock'>{this.state.time.toLocaleTimeString()}</h1>
       </div>
-    );
+    )
   }
 }
 

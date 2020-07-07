@@ -42,23 +42,25 @@ class Stopwatch extends Component {
     return (
       <div>
         <div className="stopwatch">
-          <div className="stopwatch-header">Stopwatch</div>
+          <div className="stopwatch-header text-center">Stopwatch</div>
         </div>
-        <div className="stopwatch-display">
+        <div className="stopwatch-display text-center">
           {hours} : {minutes} : {seconds} : {centiseconds}
         </div>
-        {this.state.timerOn === false && this.state.timerTime === 0 && (
-          <button className="btn btn-dark" onClick={this.startTimer}>Start</button>
-        )}
-        {this.state.timerOn === true && (
-          <button className="btn btn-dark" onClick={this.stopTimer}>Stop</button>
-        )}
-        {this.state.timerOn === false && this.state.timerTime > 0 && (
-          <button className="btn btn-dark" onClick={this.startTimer}>Resume</button>
-        )}
-        {this.state.timerOn === false && this.state.timerTime > 0 && (
-          <button className="btn btn-dark" onClick={this.resetTimer}>Reset</button>
-        )}
+        <div className='text-center'>
+          {this.state.timerOn === false && this.state.timerTime === 0 && (
+            <button className="btn btn-dark" onClick={this.startTimer}>Start</button>
+          )}
+          {this.state.timerOn === true && (
+            <button className="btn btn-dark" onClick={this.stopTimer}>Stop</button>
+          )}
+          {this.state.timerOn === false && this.state.timerTime > 0 && (
+            <button className="btn btn-dark" onClick={this.startTimer}>Resume</button>
+          )}
+          {this.state.timerOn === false && this.state.timerTime > 0 && (
+            <button className="btn btn-dark" onClick={this.resetTimer}>Reset</button>
+          )}
+        </div>
       </div>
     )
   }

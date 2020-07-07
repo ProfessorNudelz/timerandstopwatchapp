@@ -6,9 +6,19 @@ import Countdown from '../components/countdown'
 function index() {
   return (
     <Layout>
-      <Clock />
-      <Stopwatch />
-      <Countdown />
+      <div className='container'>
+        <div className='row'>
+          <Clock />
+        </div>
+        <div className='row'>
+          <div className='col-md-6'>
+            <Stopwatch />
+          </div>
+          <div className='col-md-6'>
+            <Countdown />
+          </div>
+        </div>
+      </div>
     </Layout>
   )
 }
